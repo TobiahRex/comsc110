@@ -1,4 +1,0 @@
-/Users/BICKLEY/code/cs/comsc110/AS1/1d-diamond-pattern.cpp:9:3: error: use of undeclared identifier 'join'
-  join(row1, "", result);
-  ^
-1 error generated.
