@@ -14,7 +14,7 @@ int main() {
 
   char z;
 
-  z = "letter";
+  z = 'letter';
 
   cout << z;
 
