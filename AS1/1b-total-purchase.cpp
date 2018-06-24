@@ -1,3 +1,12 @@
+
+
+///**********************************************************************************
+/// Description: This program holds the prices of in five variables.  Displays each item's price, the subtotal of the sale, the maount of sales tax, and the final total.  Tax is assumed as 7%.
+/// Author: Tobiah Bickley
+/// COMSC 110 Section 1035
+/// Date: June 24, 2018
+/// Status : Complete
+///***********************************************************************************
 #include <iostream>
 #include <cmath>
 using namespace std;

@@ -12,11 +12,9 @@ int main() {
   //
   // return 0;
 
-  char z;
+  string test = "Toby";
 
-  z = 'letter';
-
-  cout << z;
+  cout << test;
 
   return 0;
 }

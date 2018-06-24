@@ -1,4 +1,0 @@
-/Users/BICKLEY/code/cs/comsc110/AS2/2d-math-tutor.cpp:17:7: error: assigning to 'char' from incompatible type 'const char [7]'
-  z = "letter";
-      ^~~~~~~~
-1 error generated.
