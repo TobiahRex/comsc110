@@ -23,7 +23,7 @@ int main() {
   r1Length = to_string(rand1).length();
   r2Length = to_string(rand2).length();
   solutionLength = to_string(solution).length();
-  string lineBreak(9, '_');
+  string lineBreak(8, '_');
 
   cout << setw(wWidth - r1Length) << rand1 << endl;
   cout << "+" << setw(wWidth - r1Length - 1) << rand2 << endl;

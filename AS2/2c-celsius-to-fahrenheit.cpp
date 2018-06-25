@@ -1,3 +1,11 @@
+///**********************************************************************************
+/// Description: Calculates fahrenheit temperature from user input of Celsius temperature.
+/// Author: Tobiah Bickley
+/// COMSC 110 Section 1035
+/// Date: June 24, 2018
+/// Status : Complete
+///***********************************************************************************
+
 #include <iostream>
 using namespace std;
 

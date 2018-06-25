@@ -7,6 +7,7 @@
 ///***********************************************************************************
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -19,9 +20,10 @@ int main() {
 
   miles_per_gallon = mileage / gas_tank;
 
-  cout << "If a car holds"
-  << gas_tank << " gallons of gasoline and can travel "
-  << mileage << " miles before refueling, then it will go about "
+  cout << "If a car holds "
+  << gas_tank << " gallons of gasoline \nand can travel "
+  << mileage << " miles before refueling, \nthen it will go about "
+  << setprecision(2) << fixed
   << miles_per_gallon << " MPG."
   << endl;
 
