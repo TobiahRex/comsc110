@@ -8,35 +8,34 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <stdio.h>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 int main() {
-  int rand1, rand2, solution, r1Length, r2Length, solutionLength;
+  int rand1, rand2, solution, r1Length, r2Length, solutionLength, wWidth;
   srand(time(NULL));
 
   rand1 = rand() % 1000;
   rand2 = rand() % 1000;
   solution = rand1 + rand2;
+  wWidth = 11;
   r1Length = to_string(rand1).length();
   r2Length = to_string(rand2).length();
   solutionLength = to_string(solution).length();
-  string lineBreak(8, '_');
+  string lineBreak(9, '_');
 
-  printf ("%*d \n", 11 - r1Length, rand1);
-  printf ("+%*d \n", 10 - r2Length, rand2);
+  cout << setw(wWidth - r1Length) << rand1 << endl;
+  cout << "+" << setw(wWidth - r1Length - 1) << rand2 << endl;
   cout << lineBreak << endl;
-  cout << '\n';
-  cout << "(Press Enter To See Answer)" << endl;
+  cout << "\n(Press Enter To See Answer)\n" << endl;
 
   cin.ignore();
 
-  printf ("%*d \n", 11 - r1Length, rand1);
-  printf ("+%*d \n", 10 - r2Length, rand2);
+  cout << setw(wWidth - r1Length) << rand1 << endl;
+  cout << "+" << setw(wWidth - r1Length - 1) << rand2 << endl;
   cout << lineBreak << endl;
-  printf("%*d \n", 11 - solutionLength);
-
+  cout << setw(wWidth - solutionLength + (solutionLength > 3 ? 1 : 0)) << solution << endl;
 
   return 0;
 }
