@@ -8,20 +8,31 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <stdio.h>
+#include <string>
 using namespace std;
 
 int main() {
-  // double rand1, rand2;
+  int rand1, rand2, solution;
   srand(time(NULL));
-  //
-  cout << rand() % 100;
-  //
-  //
-  // return 0;
 
-  string test = "Toby";
+  rand1 = rand() % 1000;
+  rand2 = rand() % 1000;
+  solution = rand1 + rand2;
+  string lineBreak(8, "_")
 
-  cout << test;
+  cout << printf("%8d", rand1) << endl;
+  cout << "+" << printf("%3d \n", rand2) << rand2 << endl;
+  cout << lineBreak << endl;
+  cout << '\n';
+  cout << "(Press Enter To See Answer)" << endl;
+
+  cin.ignore();
+
+  cout << rand1 << endl;
+  cout << "+   " << rand2 << endl;
+  cout << "--------" << endl;
+  cout << solution << endl;
 
   return 0;
 }
