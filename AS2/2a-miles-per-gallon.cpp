@@ -1,3 +1,11 @@
+///**********************************************************************************
+/// Description: Calculates a cars gas mileage.  User inputs size of tank & total mileage for the vehicle.
+/// Author: Tobiah Bickley
+/// COMSC 110 Section 1035
+/// Date: June 24, 2018
+/// Status : Complete
+///***********************************************************************************
+
 #include <iostream>
 using namespace std;
 
