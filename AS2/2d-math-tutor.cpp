@@ -13,7 +13,7 @@
 using namespace std;
 
 int main() {
-  int rand1, rand2, solution, r1Length, r2Length;
+  int rand1, rand2, solution, r1Length, r2Length, solutionLength;
   srand(time(NULL));
 
   rand1 = rand() % 1000;
@@ -21,24 +21,22 @@ int main() {
   solution = rand1 + rand2;
   r1Length = to_string(rand1).length();
   r2Length = to_string(rand2).length();
-
+  solutionLength = to_string(solution).length();
   string lineBreak(8, '_');
 
-  cout << "rand1: " << rand1 << endl;
-  cout << "rand2: " << rand2 << endl << endl;
-
-  printf ("%*d \n", 8, rand1);
-  printf ("+ %*d \n", 7, rand2);
+  printf ("%*d \n", 11 - r1Length, rand1);
+  printf ("+%*d \n", 10 - r2Length, rand2);
   cout << lineBreak << endl;
   cout << '\n';
   cout << "(Press Enter To See Answer)" << endl;
 
   cin.ignore();
 
-  cout << rand1 << endl;
-  cout << "+   " << rand2 << endl;
-  cout << "--------" << endl;
-  cout << solution << endl;
+  printf ("%*d \n", 11 - r1Length, rand1);
+  printf ("+%*d \n", 10 - r2Length, rand2);
+  cout << lineBreak << endl;
+  printf("%*d \n", 11 - solutionLength);
+
 
   return 0;
 }
