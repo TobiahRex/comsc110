@@ -1,5 +1,3 @@
-
-
 ///**********************************************************************************
 /// Description: This program holds the prices of in five variables.  Displays each item's price, the subtotal of the sale, the maount of sales tax, and the final total.  Tax is assumed as 7%.
 /// Author: Tobiah Bickley
