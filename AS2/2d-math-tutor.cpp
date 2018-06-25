@@ -6,14 +6,12 @@
 /// Status : Complete
 ///***********************************************************************************
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <string>
 #include <iomanip>
 using namespace std;
 
 int main() {
-  int rand1, rand2, solution, r1Length, r2Length, solutionLength, wWidth;
+  int rand1(0), rand2(0), solution(0), r1Length(0), r2Length(0), solutionLength(0), wWidth(0);
   srand(time(NULL));
 
   rand1 = rand() % 1000;

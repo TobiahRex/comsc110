@@ -7,6 +7,8 @@
 ///***********************************************************************************
 
 #include <iostream>
+#include <cmath>
+#include <iomanip>
 using namespace std;
 
 int main() {
@@ -15,8 +17,9 @@ int main() {
     cout << "Enter the temperature in Celsius: " << endl;
     cin >> c;
 
-    f = (9/5) * c + 32;
+    f = ((float) 9/ (float) 5) * c + (float) 32;
 
+    cout << setprecision(2) << fixed;
     cout << f << " degrees Fahrenheit." << endl;
 
   return 0;
