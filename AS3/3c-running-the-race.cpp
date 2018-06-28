@@ -16,11 +16,14 @@ int main() {
   cout << "Enter the names of three runners and their finishing times." << endl
   << "I will tell you who came in first, second, and third." << endl;
 
+  string first_name("");
   string second_name("");
   string third_name("");
   string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
   string string_error("\nInput must be only contain letters.  Please try again.\n");
   regex detect_int("[0-9]+");
+
+  int first_time{}, second_time{}, third_time{};
 
 
   for (let i = 0; i < 3; i++) {
@@ -28,14 +31,21 @@ int main() {
 
     while (repeat) {
       cout << "\nName of Runner " << i + 1 << ": " << endl;
-      string first_name("");
-      cin >> first_name;
+      string name("");
+      cin >> name;
 
-      if (regex_match(first_name, detect_int)) {
+      if (regex_match(name, detect_int)) {
         cin.clear();
         cout << string_error;
       } else {
         repeat = false;
+
+        switch(i) {
+          case 0: first_name = name; break;
+          case 1: second_name = name; break;
+          case 2: third_name = name; break;
+          default: break;
+        }
       }
     }
 
@@ -43,8 +53,8 @@ int main() {
     while (repeat) {
       cout << "Runner " << i + 1 << "'s finishing time: " << endl;
 
-      float first_time{};
-      cin >> first_time;
+      float run_time{};
+      cin >> run_time;
 
       if (cin.fail()) {
         cout << "FAIL";
@@ -53,6 +63,13 @@ int main() {
         cin.ignore();
       } else {
         repeat = false;
+
+        switch(i) {
+          case 0: first_time = run_time; break;
+          case 1: second_time = run_time; break;
+          case 2: third_time = run_time; break;
+          default: break;
+        }
       }
     }
   }
