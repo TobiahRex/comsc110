@@ -1,0 +1,5 @@
+/Users/BICKLEY/code/cs/comsc110/AS3/3b-math-tutor.cpp:6:8: error: expected ';' at end of declaration
+  int a{0};
+       ^
+       ;
+1 error generated.
