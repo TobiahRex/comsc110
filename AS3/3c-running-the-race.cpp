@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
 
@@ -19,31 +20,40 @@ int main() {
   string third_name("");
   string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
   string string_error("\nInput must be only contain letters.  Please try again.\n");
+  regex detect_int("[0-9]+");
 
-  bool repeat{true};
 
-  while (repeat) {
-    cout << "\nName of Runner 1: " << endl;
-    string first_name("");
-    cin >> first_name;
+  for (let i = 0; i < 3; i++) {
+    bool repeat{true};
 
-    if (cin.fail()) {
-      cin.clear();
-      cout << string_error;
+    while (repeat) {
+      cout << "\nName of Runner " << i + 1 << ": " << endl;
+      string first_name("");
+      cin >> first_name;
+
+      if (regex_match(first_name, detect_int)) {
+        cin.clear();
+        cout << string_error;
+      } else {
+        repeat = false;
+      }
     }
-  }
 
-  repeat = true;
-  while (repeat) {
-    cout << "Runner 1's finishing time: " << endl;
-    float first_time{};
-    cin >> first_time;
+    repeat = true;
+    while (repeat) {
+      cout << "Runner " << i + 1 << "'s finishing time: " << endl;
 
-    if (cin.fail()) {
-      cin.clear();
-      cout << error;
-    } else {
-      repeat = false;
+      float first_time{};
+      cin >> first_time;
+
+      if (cin.fail()) {
+        cout << "FAIL";
+        cin.clear();
+        cout << number_error;
+        cin.ignore();
+      } else {
+        repeat = false;
+      }
     }
   }
 

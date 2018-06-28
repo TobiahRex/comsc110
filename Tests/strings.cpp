@@ -1,12 +1,11 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 int main() {
-  string test{};
-
-  cout << "test: " << test << endl;
+  int a;
+  cout << a++;
+  cout << a;
 
   return 0;
 }
