@@ -29,10 +29,18 @@ int main() {
   area_one = rec_one_length * rec_one_width;
   area_two = rec_two_length * rec_two_width;
 
-  if (area_one > area_two) result = "1st";
-  else if (area_two > area_one) result = "2nd";
+  if (area_one > area_two) {
+    result = "1st";
+  } else if (area_two > area_one) {
+    result = "2nd";
+  }
 
-  cout << "The " << result << " has the greater area" << endl;
+  if (result.length()) {
+    cout << "The " << result << " has the greater area" << endl;
+  }
+  else if (area_two == area_one) {
+    cout << "Both triangles are equal." << endl;
+  }
 
   return 0;
 }
