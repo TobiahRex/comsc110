@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
+#include <algorithm>
 
 using namespace std;
 
@@ -20,13 +21,13 @@ int main() {
   string second_name("");
   string third_name("");
   string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
-  string string_error("\nInput must be only contain letters.  Please try again.\n");
+  string string_error("\nInput must only contain letters, no numbers.  Please try again.\n");
   regex detect_int("[0-9]+");
 
   int first_time{}, second_time{}, third_time{};
 
 
-  for (let i = 0; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     bool repeat{true};
 
     while (repeat) {
@@ -71,8 +72,17 @@ int main() {
           default: break;
         }
       }
-    }
-  }
+    } // end of while
+  } // end of for-loop.
+  int runners[3] = {first_time, second_time, third_time};
+
+  cout << first_time << endl;
+  cout << second_time << endl;
+  cout << third_time << endl;
+
+  cout << first_name << endl;
+  cout << second_name << endl;
+  cout << third_name << endl;
 
   return 0;
 }
