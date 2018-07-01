@@ -1,5 +1,53 @@
-/Users/BICKLEY/code/cs/comsc110/AS3/3b-math-tutor.cpp:6:8: error: expected ';' at end of declaration
-  int a{0};
-       ^
-       ;
-1 error generated.
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:29:17: error: expected ';' at end of declaration
+  int first_time{}, second_time{}, third_time{};
+                ^
+                ;
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:33:16: error: expected ';' at end of declaration
+    bool repeat{true};
+               ^
+               ;
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:59:21: error: expected ';' at end of declaration
+      float run_time{};
+                    ^
+                    ;
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:72:19: error: use of undeclared identifier 'second_time'; did you mean 'second_name'?
+          case 1: second_time = run_time; break;
+                  ^~~~~~~~~~~
+                  second_name
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:23:10: note: 'second_name' declared here
+  string second_name("");
+         ^
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:73:19: error: use of undeclared identifier 'third_time'; did you mean 'third_name'?
+          case 2: third_time = run_time; break;
+                  ^~~~~~~~~~
+                  third_name
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:24:10: note: 'third_name' declared here
+  string third_name("");
+         ^
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:79:33: error: use of undeclared identifier 'second_time'; did you mean 'second_name'?
+  int runners[3] = {first_time, second_time, third_time};
+                                ^~~~~~~~~~~
+                                second_name
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:23:10: note: 'second_name' declared here
+  string second_name("");
+         ^
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:79:46: error: use of undeclared identifier 'third_time'; did you mean 'third_name'?
+  int runners[3] = {first_time, second_time, third_time};
+                                             ^~~~~~~~~~
+                                             third_name
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:24:10: note: 'third_name' declared here
+  string third_name("");
+         ^
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:79:33: error: no viable conversion from 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') to 'int'
+  int runners[3] = {first_time, second_time, third_time};
+                                ^~~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/string:818:5: note: candidate function
+    operator __self_view() const _NOEXCEPT { return __self_view(data(), size()); }
+    ^
+/Users/BICKLEY/code/cs/comsc110/AS3/3c-running-the-race.cpp:79:46: error: no viable conversion from 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') to 'int'
+  int runners[3] = {first_time, second_time, third_time};
+                                             ^~~~~~~~~~
+/Library/Developer/CommandLineTools/usr/include/c++/v1/string:818:5: note: candidate function
+    operator __self_view() const _NOEXCEPT { return __self_view(data(), size()); }
+    ^
+9 errors generated.

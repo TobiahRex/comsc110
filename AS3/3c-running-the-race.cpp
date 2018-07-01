@@ -13,6 +13,8 @@
 
 using namespace std;
 
+
+
 int main() {
   cout << "Enter the names of three runners and their finishing times." << endl
   << "I will tell you who came in first, second, and third." << endl;
@@ -74,15 +76,26 @@ int main() {
       }
     } // end of while
   } // end of for-loop.
-  int runners[3] = {first_time, second_time, third_time};
+  const int size = 3;
+  vector<int> runners = {first_time, second_time, third_time};
+  string
+  sort(runners.begin(), runners.end());
 
-  cout << first_time << endl;
-  cout << second_time << endl;
-  cout << third_time << endl;
+  first_time == runners[0] ? answer_first = first_name :
+  first_time == runners[1] ? answer_first = second_name :
+  first_time == runners[2] ? answer_first = third_name;
 
-  cout << first_name << endl;
-  cout << second_name << endl;
-  cout << third_name << endl;
+  seond_time == runners[0] ? answer_second = first_name :
+  seond_time == runners[1] ? answer_second = second_name :
+  seond_time == runners[2] ? answer_second = third_name;
+
+  third_time == runners[0] ? answer_third = first_name :
+  third_time == runners[1] ? answer_third = second_name :
+  third_time == runners[2] ? answer_third = third_name;
+
+  cout << first_name << " came in 1st place." << endl;
+  cout << second_name << " came in 2nd place." << endl;
+  cout << third_name << " came in 3rd place." << endl;
 
   return 0;
 }
