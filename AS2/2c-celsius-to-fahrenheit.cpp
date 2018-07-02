@@ -19,7 +19,6 @@ int main() {
 
     f = ((float) 9/ (float) 5) * c + (float) 32;
 
-    cout << setprecision(2) << fixed;
     cout << f << " degrees Fahrenheit." << endl;
 
   return 0;
