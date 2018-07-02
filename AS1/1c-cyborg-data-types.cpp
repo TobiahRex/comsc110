@@ -14,11 +14,13 @@ int main() {
   long l = 2;
   float f = 2.2;
   char c = 'c';
+  double d = 12.684739;
 
   cout << "char: " << sizeof(c) << endl;
   cout << "int: " << sizeof(i) << endl;
   cout << "float: " << sizeof(f) << endl;
   cout << "long: " << sizeof(l) << endl;
+  cout << "double: " << sizeof(d) << endl;
 
 
   return 0;

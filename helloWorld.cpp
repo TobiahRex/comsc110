@@ -1,13 +1,7 @@
 #include <iostream>
-
-void test() {
-  using namespace std;
-  cout << "this is from test\n";
-}
+using namespace std;
 
 int main() {
-  using namespace std;
 
-  cout << "Hello World.\n";
-  test();
+  cout << 4 * (15 / (1 + 3)) << endl;
 }

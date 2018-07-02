@@ -13,8 +13,6 @@
 
 using namespace std;
 
-
-
 int main() {
   cout << "Enter the names of three runners and their finishing times." << endl
   << "I will tell you who came in first, second, and third." << endl;
@@ -24,7 +22,6 @@ int main() {
   string third_name("");
   string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
   string string_error("\nInput must only contain letters, no numbers.  Please try again.\n");
-  regex detect_int("[0-9]+");
 
   int first_time{}, second_time{}, third_time{};
 
@@ -37,9 +34,12 @@ int main() {
       string name("");
       cin >> name;
 
+      regex detect_int("[0-9]+");
+
       if (regex_match(name, detect_int)) {
-        cin.clear();
         cout << string_error;
+        cin.clear();
+        cin.ignore();
       } else {
         repeat = false;
 
@@ -55,15 +55,13 @@ int main() {
     repeat = true;
     while (repeat) {
       cout << "Runner " << i + 1 << "'s finishing time: " << endl;
-
-      float run_time{};
+      double run_time{};
       cin >> run_time;
 
-      if (cin.fail()) {
-        cout << "FAIL";
-        cin.clear();
+      if (run_time == 0) {
         cout << number_error;
-        cin.ignore();
+        cin.clear();
+        cin.ignore(2);
       } else {
         repeat = false;
 
@@ -76,26 +74,29 @@ int main() {
       }
     } // end of while
   } // end of for-loop.
-  const int size = 3;
   vector<int> runners = {first_time, second_time, third_time};
-  string
   sort(runners.begin(), runners.end());
+
+  string answer_first("");
+  string answer_second("");
+  string answer_third("");
 
   first_time == runners[0] ? answer_first = first_name :
   first_time == runners[1] ? answer_first = second_name :
-  first_time == runners[2] ? answer_first = third_name;
+  answer_first = third_name;
 
-  seond_time == runners[0] ? answer_second = first_name :
-  seond_time == runners[1] ? answer_second = second_name :
-  seond_time == runners[2] ? answer_second = third_name;
+  second_time == runners[0] ? answer_second = first_name :
+  second_time == runners[1] ? answer_second = second_name :
+  answer_second = third_name;
 
   third_time == runners[0] ? answer_third = first_name :
   third_time == runners[1] ? answer_third = second_name :
-  third_time == runners[2] ? answer_third = third_name;
+  answer_third = third_name;
 
-  cout << first_name << " came in 1st place." << endl;
-  cout << second_name << " came in 2nd place." << endl;
-  cout << third_name << " came in 3rd place." << endl;
+  cout << endl;
+  cout << answer_first << " came in 1st place." << endl;
+  cout << answer_second << " came in 2nd place." << endl;
+  cout << answer_third << " came in 3rd place." << endl;
 
   return 0;
 }
