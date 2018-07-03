@@ -9,6 +9,7 @@
 using namespace std;
 
 int main() {
+  cout << "Characters for the ASCII codes" << endl;
   int i = 0;
   do {
     cout << (char) i;

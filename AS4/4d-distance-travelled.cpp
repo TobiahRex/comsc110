@@ -11,6 +11,7 @@
 using namespace std;
 
 int main() {
+  cout << "Distance Travelled" << endl;
   string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
   string mph("What is the speed of the vehicle in mph? ");
   string hours("For how many hours has it traveled? ");
