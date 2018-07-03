@@ -11,18 +11,23 @@
 using namespace std;
 
 int main() {
-  ifstream infile("random.txt");
-  infile.open();
+  ifstream inFile;
+  inFile.open("/Users/BICKLEY/code/cs/comsc110/AS4/random.txt");
 
   if (!inFile) {
     cout << "Unable to open file." << endl;
     exit(1);
   }
 
-  int number{};
-  do {
-    cout << "number: " << number;
-  } while(infile >> number);
+  string line;
+  int total_numbers{}, sum{};
+  float average{};
+
+  while(inFile >> line) {
+    total_numbers
+  }
+
+  inFile.close();
 
   return 0;
 }
