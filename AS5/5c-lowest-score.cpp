@@ -8,7 +8,14 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 using namespace std;
+
+vector<int> findLowest(vector<int> &v) {
+  sort(v.begin(), v.end());
+  vector<int> newScores(v.begin() + 1, v.end());
+  return newScores;
+}
 
 void getScore(int & s) {
 
@@ -17,12 +24,25 @@ void getScore(int & s) {
   while(ask) {
     cout << "Enter a test score: ";
     cin >> s;
-    if (s == 0) {
+    if (s == 0 || 0 > s || s > 100) {
       cout << "That is not a valid score.  Please try again\n";
       cin.clear();
       cin.ignore();
     } else ask = false;
   }
+}
+
+void calcAverage(vector<int> &s) {
+  s = findLowest(s);
+
+  int i{0};
+  double average{};
+  do {
+    average += s[i];
+  } while(++i < 4);
+
+  cout << setprecision(0) << fixed;
+  cout << "\nAfter dropping the lowest score the new average is: " << (average / 4) << endl;
 }
 
 int main() {
@@ -31,14 +51,7 @@ int main() {
     getScore(score);
   }
 
-  sort(scores.begin(), scores.end());
-  int i{1};
-  double average{};
-  do {
-    average += scores[i];
-  } while(++i < 5);
-
-  cout << "\nAfter dropping the lowest score the new average is: " << (average / 4) << endl;
+  calcAverage(scores);
 
   return 0;
 }
