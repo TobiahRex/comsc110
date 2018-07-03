@@ -46,7 +46,19 @@ int main() {
     string lineBreak(9, '_');
 
     int choice{};
-    cin >> choice;
+    input = true;
+
+    while (input) {
+      cin >> choice;
+      if (choice == 0) {
+        cout << number_error << endl;
+        cin.clear();
+        cin.ignore();
+        cout << "Enter your choice (1-5): ";
+      } else {
+        input = false;
+      }
+    }
 
     switch(choice) {
       case 1: {
@@ -57,14 +69,14 @@ int main() {
         cout << lineBreak << endl;
         cout << setw(wWidth - r2Length);
 
+        int answer{};
+        input = true;
         while (input) {
-          int answer{};
           cin >> answer;
           if (answer == 0) {
             cout << number_error << endl;
             cin.clear();
             cin.ignore();
-            printMenu();
           } else {
             input = false;
           }
@@ -81,8 +93,17 @@ int main() {
         cout << setw(wWidth - r2Length);
 
         int answer{};
-        cin >> answer;
-        cin.ignore();
+        input = true;
+        while (input) {
+          cin >> answer;
+          if (answer == 0) {
+            cout << number_error << endl;
+            cin.clear();
+            cin.ignore();
+          } else {
+            input = false;
+          }
+        }
 
         printResponse(solution, answer);
       }; break;
@@ -95,8 +116,17 @@ int main() {
         cout << setw(wWidth - r2Length);
 
         int answer{};
-        cin >> answer;
-        cin.ignore();
+        input = true;
+        while (input) {
+          cin >> answer;
+          if (answer == 0) {
+            cout << number_error << endl;
+            cin.clear();
+            cin.ignore();
+          } else {
+            input = false;
+          }
+        }
 
         printResponse(solution, answer);
       }; break;
@@ -116,8 +146,17 @@ int main() {
         cout << setw(wWidth - 1);
 
         int answer{};
-        cin >> answer;
-        cin.ignore();
+        input = true;
+        while (input) {
+          cin >> answer;
+          if (answer == 0) {
+            cout << number_error << endl;
+            cin.clear();
+            cin.ignore();
+          } else {
+            input = false;
+          }
+        }
 
         printResponse(div_solution, answer);
       } break;
