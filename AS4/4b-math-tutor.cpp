@@ -30,7 +30,9 @@ int printResponse(int const& s, int const& a) {
 }
 
 int main() {
+  string number_error("\nInput must be a valid number, no letters.  Please try again.\n");
   bool play{true};
+  bool input{true};
   do {
     printMenu();
     int rand1(0), rand2(0), r1Length(0), r2Length(0), wWidth(0);
@@ -42,6 +44,7 @@ int main() {
     r1Length = to_string(rand1).length();
     r2Length = to_string(rand2).length();
     string lineBreak(9, '_');
+
     int choice{};
     cin >> choice;
 
@@ -54,9 +57,18 @@ int main() {
         cout << lineBreak << endl;
         cout << setw(wWidth - r2Length);
 
-        int answer{};
-        cin >> answer;
-        cin.ignore();
+        while (input) {
+          int answer{};
+          cin >> answer;
+          if (answer == 0) {
+            cout << number_error << endl;
+            cin.clear();
+            cin.ignore();
+            printMenu();
+          } else {
+            input = false;
+          }
+        }
 
         printResponse(solution, answer);
       }; break;
