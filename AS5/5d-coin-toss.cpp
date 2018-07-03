@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 
-char* coinToss() {
+void coinToss() {
   string result("");
   srand(time(NULL));
 
@@ -24,11 +24,21 @@ char* coinToss() {
     default: break;
   }
 
-  return result;
+  cout << result;
 }
 
 int main() {
 
+  int tosses{};
+  while (true) {
+    cout << "How many tosses should I make? "
+    cin >> tosses;
+    if (tosses == 0) {
+      cout << "\nInput must be anumber - Please try again";
+      cin.clear();
+      cin.ignore();
+    } else break;
+  }
 
   return 0;
 }
