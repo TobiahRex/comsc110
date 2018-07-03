@@ -10,8 +10,19 @@
 using namespace std;
 
 int main() {
+  int i{};
+  string pattern("+");
 
-  
+  cout << "Pattern A" << endl;
+  do {
+    cout << pattern << endl;
+    pattern += "+";
+  } while(++i < 10);
+
+  cout << "\nPattern B" << endl;
+  do {
+    cout << pattern.substr(0, i) << endl;
+  } while(i-- > 0);
 
   return 0;
 }
