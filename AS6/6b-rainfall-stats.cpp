@@ -10,9 +10,14 @@
 #include <string>
 #include <algorithm>
 #include <iomanip>
+using namespace std;
 
 void printResults(float const& s, float const& a, float const& l, float const& sm) {
-  cout << "the total rainfall for the year is " <<
+  cout << setprecision(2) << fixed;
+  cout << "the total rainfall for the year is " << s << " inches." << endl;
+  cout << "the average rainfall for the year is " << a << " inches." << endl;
+  cout << "the largest amount of rainfall was " << s << " inches in month" << "<CHANGE>." << endl;
+  cout << "the smallest amount of rainfall was " << s << " inches in month" << "<CHANGE>." << endl;
 }
 
 void askForRain(vector<float> & n, int & month) {
