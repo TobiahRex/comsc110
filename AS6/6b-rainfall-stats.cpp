@@ -10,29 +10,35 @@
 #include <string>
 #include <algorithm>
 
-void askForRain(vector<int> & v) {
-  string error("That is not a valid input.  Please enter a positive interger & try again");
+void askForRain(vector<float> & n, int & month) {
+  string error("\nThat is not a valid input.  \nPlease enter a valid floating point number & try again\n");
 
-  int i{0};
-  while(i++ < 12) {
-    while(true) {
-      int monthCount{};
-      cout << "Enter the rainfall (in inches) for month: " <<
-      int number{};
-      cin >> number;
+  while(true) {
+    int monthCount{};
+    cout << "Enter the rainfall (in inches) for month #" << month  << ": ";
+    float number{};
+    cin >> number;
 
-      if (number == 0 || number < 0) {
-        cout << error << endl;
-        cin.clear();
-        cin.ignore();
-      } else {
-        v.push_back(number);
-        break;
-      }
+    if (number == 0 || number < 0) {
+      cout << error << endl;
+      cin.clear();
+      cin.ignore();
+    } else {
+      n.push_back(number);
+      break;
     }
   }
+
+  return rain;
 }
 
+void beginProgram() {
+  int month{0};
+  vector <float> rain;
+  while(month++ < 12) {
+    askForRain(rain, month);
+  }
+}
 
 int main() {
 
