@@ -1,5 +1,5 @@
 ///**********************************************************************************
-/// Description: Calculates the falling distance of an object and displays the results.
+/// Description: Makes a series of random coin tosses [head/tails] and outpus the results
 /// Author: Tobiah Bickley
 /// COMSC 110 Section 1035
 /// Date: July 3, 2018
@@ -7,18 +7,15 @@
 ///***********************************************************************************
 #include <iostream>
 #include <string>
+#include <vector>
+#include <iomanip>
 using namespace std;
 
 void coinToss() {
   string result("");
-  srand(time(NULL));
-
-  int random{};
-  do {
-    random = random() % 10;
-  } while(2 !== random || random != 1);
-
-  switch(random) {
+  vector<int> coins = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2};
+  int random = rand() % 10;
+  switch(coins[random]) {
     case 1: result = "heads"; break;
     case 2: result = "tails"; break;
     default: break;
@@ -28,17 +25,27 @@ void coinToss() {
 }
 
 int main() {
-
-  int tosses{};
-  while (true) {
-    cout << "How many tosses should I make? "
+  srand(time(NULL));
+  int tosses{}, i{};
+  bool play{true};
+  while(play) {
+    cout << "How many tosses should I make? ";
     cin >> tosses;
-    if (tosses == 0) {
-      cout << "\nInput must be anumber - Please try again";
+    if (tosses == 0 || tosses < 0) {
+      cout << "\nInput must be a number(+) - Please try again";
       cin.clear();
       cin.ignore();
-    } else break;
+    } else {
+      play = false;
+    }
   }
+
+  do {
+    i += 1;
+    cout << setw(2) << i << ": \t";
+    coinToss();
+    cout << endl;
+  } while(--tosses > 0);
 
   return 0;
 }

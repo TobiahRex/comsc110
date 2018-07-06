@@ -41,7 +41,7 @@ void calcAverage(vector<int> &s) {
     average += s[i];
   } while(++i < 4);
 
-  cout << setprecision(0) << fixed;
+  cout << setprecision(1) << fixed;
   cout << "\nAfter dropping the lowest score the new average is: " << (average / 4) << endl;
 }
 
