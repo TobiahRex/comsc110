@@ -12,12 +12,20 @@
 #include <iomanip>
 using namespace std;
 
-void printResults(float const& s, float const& a, float const& l, float const& sm) {
+void printResults(
+  float const& s
+  float const& a
+  float const& l
+  float const& lgM,
+  float const& smM,
+) {
   cout << setprecision(2) << fixed;
   cout << "\nthe total rainfall for the year is " << s << " inches." << endl;
   cout << "the average rainfall for the year is " << a << " inches." << endl;
-  cout << "the largest amount of rainfall was " << l << " inches in month" << "<CHANGE>." << endl;
-  cout << "the smallest amount of rainfall was " << sm << " inches in month" << "<CHANGE>." << endl;
+  cout << "the largest amount of rainfall was " << l << " inches in month ";
+  cout << setprecision(0) << fixed << lgM << "." << endl;
+  cout << "the smallest amount of rainfall was " << sm << " inches in month ";
+  cout << setprecision(0) << fixed << smM << "." << endl;
 }
 
 void getResults(vector<float> & r, float & sum, float & avg, float & lrg, float & sm) {
@@ -57,7 +65,7 @@ void beginProgram() {
     askForRain(rainfall, month, largestMonth, smallestMonth);
   }
   getResults(rainfall, sum, average, largest, smallest);
-  printResults(sum, average, largest, smallest);
+  printResults(sum, average, largest, smallest, largestMonth, smallestMonth);
 }
 
 int main() {
