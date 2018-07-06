@@ -9,6 +9,11 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <iomanip>
+
+void printResults(float const& s, float const& a, float const& l, float const& sm) {
+  cout << "the total rainfall for the year is " <<
+}
 
 void askForRain(vector<float> & n, int & month) {
   string error("\nThat is not a valid input.  \nPlease enter a valid floating point number & try again\n");
@@ -28,20 +33,29 @@ void askForRain(vector<float> & n, int & month) {
       break;
     }
   }
-
-  return rain;
 }
 
 void beginProgram() {
+  float sum{}, average{}, largest{}, smallest{};
   int month{0};
-  vector <float> rain;
+  vector <float> rainfall;
   while(month++ < 12) {
-    askForRain(rain, month);
+    askForRain(rainfall, month);
   }
+  getResults(rainfall, sum, average, largest, smallest);
+  printResults(sum, average, largest, smallest);
+}
+
+void getResults(vector<float> const& r, float & sum, float & avg, float & lrg, float & sm) {
+  sort(r.begin(), r.end());
+  for (rain : r) sum += rain;
+  avg = sum / r.size();
+  lrg = r[r.size() - 1];
+  sm = r[0];
 }
 
 int main() {
-
+  beginProgram();
 
   return 0;
 }
