@@ -21,12 +21,12 @@ void printResults(
   float const& lgM,
   float const& smM
 ) {
-  cout << "smM: " << smM;
   cout << setprecision(2) << fixed;
   cout << "\nthe total rainfall for the year is " << s << " inches." << endl;
   cout << "the average rainfall for the year is " << a << " inches." << endl;
   cout << "the largest amount of rainfall was " << l << " inches in month ";
   cout << setprecision(0) << fixed << lgM << "." << endl;
+  cout << setprecision(2) << fixed;
   cout << "the smallest amount of rainfall was " << sm << " inches in month ";
   cout << setprecision(0) << fixed << smM << "." << endl;
 }
@@ -39,7 +39,14 @@ void getResults(vector<float> & r, float & sum, float & avg, float & lrg, float 
   sm = r[0];
 }
 
-void askForRain(vector<float> & n, int & month, float & lrgM, float & smM, float & lstSm, float & lstLg) {
+void askForRain(
+  vector<float> & n,
+  int & month,
+  float & lrgM,
+  float & smM,
+  float & lstSm,
+  float & lstLg
+) {
   string error("\nThat is not a valid input.  \nPlease enter a valid floating point number & try again\n");
 
   while(true) {
@@ -61,8 +68,6 @@ void askForRain(vector<float> & n, int & month, float & lrgM, float & smM, float
          lstSm = number;
        }
 
-      // lrgM == 0 ? lrgM = 1 : smM == 0 ? smM = 1 : 1;
-
       n.push_back(number);
       break;
     }
@@ -76,7 +81,7 @@ void beginProgram() {
   smallest{},
   largestMonth{},
   smallestMonth{},
-  lastSmall{},
+  lastSmall{numeric_limits<int>::max()},
   lastLarge{};
 
   int month{0};

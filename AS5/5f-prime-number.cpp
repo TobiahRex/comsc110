@@ -13,10 +13,8 @@ using namespace std;
 bool isPrime(ofstream & file, int & n) {
   int i{1};
   while(i++ <= 100) {
-    if (i != n) {
-      if (n % i == 0) {
-        return false;
-      }
+    if (i != n && (n % i == 0)) {
+      return false;
     }
   }
 
