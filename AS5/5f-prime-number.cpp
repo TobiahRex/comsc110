@@ -12,11 +12,7 @@ using namespace std;
 
 bool isPrime(ofstream & file, int & n) {
   int i{1};
-  while(i++ <= 100) {
-    if (i != n && (n % i == 0)) {
-      return false;
-    }
-  }
+  while (i++ <= 100) if (i != n && (n % i == 0)) return false;
 
   file << n;
   file << "\n";
@@ -28,8 +24,7 @@ int main() {
   ofstream myFile;
   myFile.open("./AS5/primeList.txt");
 
-  int i{1};
-  while(i++ < 100) isPrime(myFile, i);
+  for (int i{2}; i < 100; i++) isPrime(myFile, i);
 
   myFile.close();
   cout << "Prime numbers written to primeList.txt" << endl;
