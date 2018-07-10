@@ -13,26 +13,28 @@
 #include <limits>
 using namespace std;
 
-int printStats(vecotr<string> & sauces; vecotr<int> sales) {
+void printStats(vector<string> & sauces, vector<int> & sales) {
   int totalSales{},
     high{},
-    low{numeric_limits<int>::max()};
-  string hiSauce,
-    loSauce;
+    low{numeric_limits<int>::max()},
+    size{};
 
-  for (int i{0}; i < sales.size(); i++) {
+  string hiSauce, loSauce;
+
+  size = sales.size();
+  for (int i{0}; i < size; i++) {
     // calc total sales;
     totalSales += sales[i];
 
     // detect highest seller
-    if (sales[i] > hi) {
-      hi = sales[i];
-      hiSauces = sauces[i];
+    if (sales[i] > high) {
+      high = sales[i];
+      hiSauce = sauces[i];
     }
     // detect lowest seller
     if (sales[i] < low) {
       low = sales[i];
-      loSauces = sauces[i];
+      loSauce = sauces[i];
     }
   }
 
@@ -40,15 +42,18 @@ int printStats(vecotr<string> & sauces; vecotr<int> sales) {
   cout << "Hi Seller: \t\t" << hiSauce << endl;
   cout << "Lo Seller: \t\t" << loSauce << endl;
 }
-int printResults(vector<string> & sauces;  vector<int> sales) {
+void printResults(vector<string> & sauces,  vector<int> & sales) {
+  int size{};
+  size = sauces.size();
+
   cout <<  "\t\tSalsa Sales Report" << endl << endl;
   cout << "Name\t\t" << "Jars Sold" << endl;
   string lb(25, '-');
-  for (int i{0}; i < sauces.size(); i++) {
-    cout << sauces[i] << "\t\t" << setw(3) sales[i] << endl;
-  }
+
+  for (int i{0}; i < sauces.size(); i++)
+    cout << sauces[i] << "\t\t" << setw(3) << sales[i] << endl;
 }
-int getSales(string const& type, int & answer) {
+void getSales(string const& type, int & answer) {
   string error("That is not a valid input. Please try again");
 
   while (true) {
@@ -62,16 +67,15 @@ int getSales(string const& type, int & answer) {
       break;
     }
   }
-  return 0;
 }
 
 int main() {
   vector <string> sauces = {"mild", "medium", "sweet", "hot", "zesty"};
   vector <int> sales;
+  int size{};
+  size = sauces.size();
 
-  for (int i{0}; i < sauces.size(); i++)
-    getSales(sauces[i], sales[i]);
-
+  for (int i{0}; i < sauces.size(); i++) getSales(sauces[i], sales[i]);
   printSales(sauces, sales);
   printStats(sauces, sales);
 
