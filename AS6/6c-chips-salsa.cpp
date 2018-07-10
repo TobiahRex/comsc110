@@ -18,10 +18,10 @@ void printStats(vector<string> & sauces, vector<int> & sales) {
     high{},
     low{numeric_limits<int>::max()},
     size{};
-
   string hiSauce, loSauce;
 
   size = sales.size();
+
   for (int i{0}; i < size; i++) {
     // calc total sales;
     totalSales += sales[i];
@@ -42,7 +42,7 @@ void printStats(vector<string> & sauces, vector<int> & sales) {
   cout << "Hi Seller: \t\t" << hiSauce << endl;
   cout << "Lo Seller: \t\t" << loSauce << endl;
 }
-void printResults(vector<string> & sauces,  vector<int> & sales) {
+void printSales(vector<string> & sauces,  vector<int> & sales) {
   int size{};
   size = sauces.size();
 
@@ -50,7 +50,7 @@ void printResults(vector<string> & sauces,  vector<int> & sales) {
   cout << "Name\t\t" << "Jars Sold" << endl;
   string lb(25, '-');
 
-  for (int i{0}; i < sauces.size(); i++)
+  for (int i{0}; i < size; i++)
     cout << sauces[i] << "\t\t" << setw(3) << sales[i] << endl;
 }
 void getSales(string const& type, int & answer) {
@@ -60,10 +60,12 @@ void getSales(string const& type, int & answer) {
     cout << "Jars sold last month of " << type << ": ";
     cin >> answer;
     if (answer == 0 || answer < 0) {
-      cout >> error;
+      cout << "HELLO";
+      cout << error;
       cin.clear();
       cin.ignore();
     } else {
+      cout << "BREAK";
       break;
     }
   }
@@ -71,11 +73,14 @@ void getSales(string const& type, int & answer) {
 
 int main() {
   vector <string> sauces = {"mild", "medium", "sweet", "hot", "zesty"};
-  vector <int> sales;
+  vector <int> sales(5);
   int size{};
   size = sauces.size();
 
-  for (int i{0}; i < sauces.size(); i++) getSales(sauces[i], sales[i]);
+  for (int i{0}; i < size; i++) {
+    getSales(sauces[i], sales[i]);
+    cout << "sales[i]: " << sales[i] << endl;
+  };
   printSales(sauces, sales);
   printStats(sauces, sales);
 
