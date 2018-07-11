@@ -9,16 +9,22 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include <iomanip>
 using namespace std;
 
 void printResults(
   float h,
   float l,
-  float mHigh,
-  float mLo,
+  float monkeyHi,
+  float monkeyLo,
   vector<float> avgs,
 ) {
-  
+
+  for (int i{0}; i < 7; i++) {
+    cout << "The average amount of eaten on day " << (i + 1) << "is " << setprecision(2) << fixed << avgs[i] << " pounds." << endl;
+  }
+
+  cout << "Monkey number " << monkeyHi << 
 }
 
 vector<float> calcStats(
