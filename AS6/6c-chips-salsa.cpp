@@ -38,7 +38,7 @@ void printStats(vector<string> & sauces, vector<int> & sales) {
     }
   }
 
-  cout << "Total Sales: \t\t" << totalSales << endl;
+  cout << "\nTotal Sales: \t\t" << totalSales << endl;
   cout << "Hi Seller: \t\t" << hiSauce << endl;
   cout << "Lo Seller: \t\t" << loSauce << endl;
 }
@@ -46,26 +46,25 @@ void printSales(vector<string> & sauces,  vector<int> & sales) {
   int size{};
   size = sauces.size();
 
-  cout <<  "\t\tSalsa Sales Report" << endl << endl;
-  cout << "Name\t\t" << "Jars Sold" << endl;
-  string lb(25, '-');
+  cout <<  "\n\n\tSalsa Sales Report" << endl << endl;
+  cout << "Name\t\t\t" << "Jars Sold" << endl;
+  string lb(33, '-');
+  cout << lb << endl;
 
   for (int i{0}; i < size; i++)
-    cout << sauces[i] << "\t\t" << setw(3) << sales[i] << endl;
+    cout << sauces[i] << "\t\t\t" << setw(5) << sales[i] << endl;
 }
 void getSales(string const& type, int & answer) {
-  string error("That is not a valid input. Please try again");
+  string error("\n\nThat is not a valid input. Please try again\n\n");
 
   while (true) {
     cout << "Jars sold last month of " << type << ": ";
     cin >> answer;
     if (answer == 0 || answer < 0) {
-      cout << "HELLO";
       cout << error;
       cin.clear();
       cin.ignore();
     } else {
-      cout << "BREAK";
       break;
     }
   }
@@ -77,10 +76,7 @@ int main() {
   int size{};
   size = sauces.size();
 
-  for (int i{0}; i < size; i++) {
-    getSales(sauces[i], sales[i]);
-    cout << "sales[i]: " << sales[i] << endl;
-  };
+  for (int i{0}; i < size; i++) getSales(sauces[i], sales[i]);
   printSales(sauces, sales);
   printStats(sauces, sales);
 
