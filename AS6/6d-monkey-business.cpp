@@ -8,10 +8,45 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 using namespace std;
 
-int calcStats(vector< vector<float> >) {
+void printResults(
+  float h,
+  float l,
+  float mHigh,
+  float mLo,
+  vector<float> avgs,
+) {
+  
+}
 
+vector<float> calcStats(
+  high,
+  low,
+  monkeyHi,
+  monkeyLo,
+  vector< vector<float> > &foodChart
+) {
+  vector<float> avgs;
+
+  for (int i{0}; i < 7; i++) {
+    float curr_avg{};
+    for (int j{0}; j < 3; j++) {
+      curr_avg += foodChart[i][j];
+
+      if (foodChart[i][j] < low) {
+        low = foodChart[i][j];
+        monkeyLo = j;
+      }
+
+      if (foodChart[i][j] < high) {
+        high = foodChart[i][j];
+        monkeyLo = j;
+      }
+    }
+    avgs[i] = (curr_avg / 3);
+  }
 }
 
 void getFood(
@@ -43,14 +78,16 @@ void getFood(
 
 int main() {
   int rows{3}, cols{7};
+  float high{}, low{numeric_limits<int>::max()};
+  int monkeyHi{}, monkeyLo{};
   vector<vector<float>> foodChart(rows, vector<float>(cols, 0));
 
   for (int i{0}; i < rows; i++) {
     for (int j{0}; j < cols; j++) getFood(i, j, foodChart);
   }
 
-  calcStats(foodChart);
-  printResults(foodChart);
+  vector<float> averages = calcStats(foodChart);
+  printResults(high, low, monkeyHi, monkeyLo, averages);
 
   return 0;
 }
