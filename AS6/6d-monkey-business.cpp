@@ -13,67 +13,70 @@
 using namespace std;
 
 void printResults(
-  float h,
-  float l,
-  int hDay,
-  int lDay,
-  int monkeyHi,
-  int monkeyLo,
-  vector<float> avgs,
+  float &h,
+  float &l,
+  int &hDay,
+  int &lDay,
+  int &monkeyHi,
+  int &monkeyLo,
+  vector<float> &avgs
 ) {
 
-  for (int i{0}; i < 7; i++) {
-    cout << "\nThe average amount eaten on day " << (i + 1) << "is " << setprecision(2) << fixed << avgs[i] << " pounds." << endl;
+  for (int i{1}; i < 8; i++) {
+    cout << "The average amount eaten on day " << i << " is " << setprecision(2) << fixed << avgs[i] << " pounds." << endl;
   }
-  cout << "\nMonkey number " << monkeyLo << " at the least amount of food, " << setprecision(2) << fixed << " pounds, on day " << lDay << endl;
-  cout << "Monkey number " << monkeyHi << " at the most amount of food, " << setprecision(2) << fixed << " pounds, on day " << hDay << endl;
+  cout << "\nMonkey number " << monkeyLo << " ate the least amount of food, ";
+  cout << setprecision(2) << fixed << l << " pounds, on day " << lDay << endl;
+
+  cout << "Monkey number " << monkeyHi << " ate the most amount of food, ";
+  cout << setprecision(2) << fixed << h << " pounds, on day " << hDay << endl;
 }
 
 vector<float> calcStats(
-  float high,
-  float low,
-  int highDay,
-  int lowDay,
-  int monkeyHi,
-  int monkeyLow,
+  float &high,
+  float &low,
+  int &highDay,
+  int &lowDay,
+  int &monkeyHi,
+  int &monkeyLow,
   vector< vector<float> > &foodChart
 ) {
-  vector<float> avgs;
+  vector<float> avgs(7);
 
   for (int i{0}; i < 7; i++) {
     float curr_avg{};
-    for (int j{0}; j < 3; j++) {
-      curr_avg += foodChart[i][j];
 
-      if (foodChart[i][j] < low) {
-        low = foodChart[i][j];
-        monkeyLow = j;
-        lowDay = i;
+    for (int j{0}; j < 3; j++) {
+      curr_avg += foodChart[j][i];
+
+      if (foodChart[j][i] < low) {
+        low = foodChart[j][i];
+        monkeyLow = (j + 1);
+        lowDay = (i + 1);
       }
 
-      if (foodChart[i][j] > high) {
-        high = foodChart[i][j];
-        monkeyHi = j;
-        highDay = i;
+      if (foodChart[j][i] > high) {
+        high = foodChart[j][i];
+        monkeyHi = (j + 1);
+        highDay = (i + 1);
       }
     }
-    avgs[i] = (curr_avg / 3);
+    avgs[i] = (curr_avg / 3.0);
   }
-
   return avgs;
 }
 
 void getFood(
   int & i,
   int & j,
-  vector< vector<int> > &foodChart,
+  vector< vector<float> > &foodChart
 ) {
-  string error("\nThat is not a valid input.\n");
-  string nonNeg("\nEnter a non-negative number.\n");
+  string error("That is not a valid input.\n");
+  string nonNeg("Enter a non-negative number.\n");
   float food{};
 
   while(true) {
-    cout << "Enter the pounds eaten by monkey number " << (i + 1) << " on day" << (j + 1) << ": ";
+    cout << "Enter the pounds eaten by monkey number " << (i + 1) << " on day " << (j + 1) << ": ";
     cin >> food;
     if (food == 0) {
       cout << error;
@@ -93,14 +96,25 @@ void getFood(
 int main() {
   int rows{3}, cols{7};
   float high{}, low{numeric_limits<int>::max()};
-  int monkeyHi{}, monkeyLo{}, highDay{}, lowDay{};
+  int highDay{}, lowDay{}, monkeyHi{}, monkeyLo{};
   vector< vector<float> > foodChart(rows, vector<float>(cols, 0));
 
   for (int i{0}; i < rows; i++) {
-    for (int j{0}; j < cols; j++) getFood(i, j, foodChart);
+    for (int j{0}; j < cols; j++) {
+      getFood(i, j, foodChart);
+    }
   }
 
-  vector<float> averages = calcStats(foodChart);
+  vector<float> averages = calcStats(
+    high,
+    low,
+    highDay,
+    lowDay,
+    monkeyHi,
+    monkeyLo,
+    foodChart
+  );
+
   printResults(
     high,
     low,
