@@ -6,22 +6,21 @@
 /// Status : Complete
 ///***********************************************************************************
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
-  vector<int> nums = {101,99,88,77,66,55,44,33,22,11};
+  vector<int> nums = {101, 99, 88, 77, 66, 55, 44, 33, 22, 11};
   int size = nums.size();
 
-  for (int i{1}; i < size; i++) {
-    int largest{};
-    int limit = (size - i);
-    for (int j{0}; j < limit; j++) {
-      if (j != limit) {
-        
-      } else {
-        // swap
-      }
+  for (int i{size}; i > 1; i--) {
+    int lgIndex{};
+    for (int j{0}; j < i; j++) {
+      if (nums[j] > nums[lgIndex]) lgIndex = j;
     }
+    int temp = nums[i - 1];
+    nums[i - 1] = nums[lgIndex];
+    nums[lgIndex] = temp;
   }
 
   return 0;
