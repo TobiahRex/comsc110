@@ -11,14 +11,17 @@ using namespace std;
 
 void testOne();
 void testTwo();
+void testThree();
 
 int main() {
   string lineBreak(25, '=');
 
+  // cout << lineBreak << endl;
+  // testOne();
+  // cout << lineBreak << endl;
+  // testTwo();
   cout << lineBreak << endl;
-  testOne();
-  cout << lineBreak << endl;
-  testTwo();
+  testThree();
 }
 
 void testOne() {
@@ -40,4 +43,29 @@ void testTwo() {
 
   *pointer = 10;
   cout << "firstValue: " << firstValue << endl;
+
+  pointer = &secondValue;
+  cout << "pointer: " << pointer << endl;
+
+  *pointer = 20;
+  cout << "secondValue: " << secondValue << " | pointer: " << pointer << endl;
+}
+
+void testThree() {
+  int arr[5];
+  int * ptr;
+
+  ptr = arr; *ptr = 10;
+  cout << "ptr: " << ptr << endl;
+  cout << "*ptr: " << *ptr << endl;
+  cout << "arr[0]: " << arr[0] << endl;
+
+  ptr++; *ptr = 20;
+
+  ptr = arr + 2; *ptr = 30;
+
+  ptr = arr; *(ptr + 3) = 40;
+
+  for (auto num : arr) cout << " " << num;
+  cout << endl;
 }
