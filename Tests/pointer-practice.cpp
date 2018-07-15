@@ -66,6 +66,8 @@ void testThree() {
 
   ptr = arr; *(ptr + 3) = 40;
 
+  ptr = &arr[4]; *ptr = 50;
+
   for (auto num : arr) cout << " " << num;
   cout << endl;
 }
