@@ -1,5 +1,5 @@
 ///**********************************************************************************
-/// Description: File head program
+/// Description: Displays the entire contents of a file.
 /// Author: Tobiah Bickley
 /// COMSC 110 Section 1035
 /// Date: July 14, 2018
@@ -31,19 +31,16 @@ void readFile(string &fileName) {
 
   string line;
   int lineCount{};
-  bool fileEnd{true};
-
   while(getline(infile, line)) {
     cout << line << endl;
     lineCount++;
-    if (lineCount == 10) {
-      if(getline(infile, line))
-        fileEnd = false;
-      break;
+    if (lineCount % 24 == 0) {
+      if(getline(infile, line)) {
+        cout << "...Press ENTER to continue..." << endl;
+        cin.ignore(1);
+      }
     }
   }
-  if (lineCount < 10)
-    cout << "\nThat is the end of the file." << endl;
 
   if (infile.is_open())
     infile.close();
