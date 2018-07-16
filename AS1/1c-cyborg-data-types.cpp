@@ -11,16 +11,24 @@ using namespace std;
 
 int main() {
   int i = 1;
+  short s = 2;
   long l = 2;
   float f = 2.2;
   char c = 'c';
-  double d = 12.684739;
+  double d = 12.68;
 
-  cout << "char: " << sizeof(c) << endl;
   cout << "int: " << sizeof(i) << endl;
-  cout << "float: " << sizeof(f) << endl;
+  cout << "short: " << sizeof(s) << endl;
   cout << "long: " << sizeof(l) << endl;
+  cout << "float: " << sizeof(f) << endl;
+  cout << "char: " << sizeof(c) << endl;
   cout << "double: " << sizeof(d) << endl;
+
+  cout << "&double: " << &d << endl;
+  cout << "&float: " << &f << endl;
+  cout << "&long: " << &l << endl;
+  cout << "&short: " << &s << endl;
+  cout << "&int: " << &i << endl;
 
 
   return 0;

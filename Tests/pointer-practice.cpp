@@ -12,6 +12,7 @@ using namespace std;
 void testOne();
 void testTwo();
 void testThree();
+void testFour();
 
 int main() {
   string lineBreak(25, '=');
@@ -20,8 +21,10 @@ int main() {
   // testOne();
   // cout << lineBreak << endl;
   // testTwo();
+  // cout << lineBreak << endl;
+  // testThree();
   cout << lineBreak << endl;
-  testThree();
+  testFour();
 }
 
 void testOne() {
@@ -70,4 +73,27 @@ void testThree() {
 
   for (auto num : arr) cout << " " << num;
   cout << endl;
+}
+
+void testFour() {
+  int *ptr1;
+  short *ptr2;
+  long *ptr3;
+  double *ptr4;
+
+  cout << ptr1 << endl;
+  cout << ptr2 << endl;
+  cout << ptr3 << endl;
+  cout << ptr4 << endl;
+
+  ++ptr1;
+  ++ptr2;
+  ++ptr3;
+  ++ptr4;
+
+  cout << endl;
+  cout << ptr1 << endl;
+  cout << ptr2 << endl;
+  cout << ptr3 << endl;
+  cout << ptr4 << endl;
 }

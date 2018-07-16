@@ -9,8 +9,17 @@
 #include <fstream>
 #include <string>
 #include <regex>
-
 using namespace std;
+
+void getFileName();
+void readFile();
+
+int main() {
+  string fileName;
+  getFileName(fileName);
+  readFile(fileName);
+  return 0;
+}
 
 void getFileName(string &f) {
   while(true) {
@@ -44,14 +53,4 @@ void readFile(string &fileName) {
 
   if (infile.is_open())
     infile.close();
-}
-
-int main() {
-  string fileName;
-
-  getFileName(fileName);
-  readFile(fileName);
-
-
-  return 0;
 }
