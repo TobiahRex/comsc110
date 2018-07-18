@@ -10,7 +10,7 @@
 #include <strings>
 using namespace std;
 
-void getUserInput(string &f, string &s) {
+void getUserInput(string &w1, string &w2) {
   string error("\nThat is not a valid entry.  Please try again.\n");
   while(true) {
     cout << "\nEnter first word: ";
@@ -37,7 +37,8 @@ void getUserInput(string &f, string &s) {
 }
 
 int main() {
-
+  string word1, word2;
+  getUserInput(word1, word2);
 
   return 0;
 }
