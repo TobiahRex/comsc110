@@ -11,7 +11,12 @@
 using namespace std;
 
 void printResults(movie_data & movie) {
-  for (int i = 0; i)
+  vector<string> outputFields = {"Title: ", "Director: ", "Released: ", "Running Time: "};
+  vector<string> structFields = {"title", "director", "released", "run_time"};
+
+  for (int i = 0; i < movie.size(); i++) {
+    cout << outputFields[i] << movie[structFields[i]] << endl;
+  }
 };
 
 int main() {
