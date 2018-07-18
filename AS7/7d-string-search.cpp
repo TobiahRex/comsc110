@@ -12,20 +12,20 @@
 #include <regex>
 using namespace std;
 
+struct detected_line {
+  string line_str;
+  int line_num;
+} found_line;
+
 void getUserInput(string &f, string &s);
-void readFile(string &f, string &s);
+void readFile(string &f, string &s, vector<detected_line> foundLines);
 
 int main() {
   string fileName, subString;
-  struct detected_line {
-    string line_str;
-    int line_num;
-  } found_line;
-  vector<string> foundArr;
+  vector<detected_line> foundArr;
 
   getUserInput(fileName, subString);
-  readFile(fileName, subString, foundArr, found_line);
-  printResults(foundArr);
+  readFile(fileName, subString, foundArr);
 
   return 0;
 }
@@ -55,22 +55,28 @@ void getUserInput(string &f, string &s) {
   }
 }
 
-void readFile(string &f, string &s, struct dline) {
+void readFile(string &f, string &s, vector<detected_line> foundLines) {
   ifstream infile("/Users/BICKLEY/code/cs/comsc110/AS7/" + f);
-  vector<string> found;
   string line;
-  int linesCount{}, occurenceCount{};
+  int linesCount{};
 
   while(true) {
     if(getline(infile, line)) {
       linesCount++;
-      if (line.find(s)) {
-        dline.line_str = line;
-        dline.line_num = lineCount;
-        found.push_back(dline);
+      size_t found = line.find(s);
+      if (found != string::npos) {
+        detected_line found_line;
+        found_line.line_str = line;
+        found_line.line_num = linesCount;
+        foundLines.push_back(found_line);
       }
     } else {
       break;
     }
   }
+
+  for (auto line_data : foundLines) {
+    cout << line_data.line_num << ". " << line_data.line_str << endl;
+  }
+  cout << "\"" << s << "\"" << " was found " << foundLines.size() << " times." << endl;
 }
