@@ -6,6 +6,7 @@
 /// Status : Complete
 ///***********************************************************************************
 #include <iostream>
+#include <vector>
 #include <fstream>
 #include <string>
 #include <regex>
@@ -18,6 +19,8 @@ vector<string> splice(vector<string> &arr, int start, int stop);
 int main() {
   string fileName;
   getFileName(fileName);
+  readFile(fileName);
+
   return 0;
 }
 
@@ -49,18 +52,20 @@ void getFileName(string &f) {
 }
 
 void readFile(string &f) {
-  ifstream infile("/Users/BICKLEY/code/cs/comsc110/AS7/" + fileName);
+  ifstream infile("/Users/BICKLEY/code/cs/comsc110/AS7/" + f);
   vector<string> lines;
   string line, eofile("That is the whole file.");
-  int lineCount{};
+  int linesCount{};
 
-  while(getline(infile, line)) {
-    linesCount++;
-    lines.push_back(line);
-
-    if(infile.eof()) {
-      vector<string> last10 = splice(lines, (lines.size() - 10), lines.end());
-      for (auto line : lines) cout << line << endl;
+  while(true) {
+    if(getline(infile, line)) {
+      linesCount++;
+      lines.push_back(line);
+    } else {
+      int start = lines.size() - 10;
+      int stop = lines.size();
+      vector<string> last10 = splice(lines, start, stop);
+      for (auto line : last10) cout << line << endl;
       if (linesCount < 10) cout << endl << eofile << endl;
       break;
     }
