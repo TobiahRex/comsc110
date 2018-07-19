@@ -85,20 +85,21 @@ void alphabetical(string &w1, string &w2) {
   cout << answer << endl;
 }
 
-void printResults(string &w1, string &w2, string &same) {
-  checkSame(w1, w2, same);
-  cout << "First Word:" << endl;
+void printResults(string &w string &same, string title) {
+  cout << title << endl;
   capitalizeWord(w1);
   lowercaseWord(w1);
   wordLength(w1);
   firstLastChar(w1);
-
 }
 
 int main() {
   string word1, word2, sameCheck;
   getUserInput(word1, word2);
-  printResults(word1, word2, sameCheck);
+  checkSame(w1, w2, same);
+  printResults(word1, sameCheck, "First Word: ");
+  printResults(word2, sameCheck, "Second Word: ");
+  alphabetical(word1, word2);
 
   return 0;
 }
