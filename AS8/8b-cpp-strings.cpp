@@ -81,9 +81,9 @@ void alphabetical(string &w1, string &w2) {
   if (compare_result == 0)
     answer = "\n" + w1 + " is NOT the same as " + w2;
   else if (compare_result < 0)
-    answer = "\nThe entered words in order: " + w1 + " " + w2;
+    answer = "\nAlphabetical order: " + w1 + " " + w2;
   else
-    answer = "\nThe entered words in order: " + w2 + " " + w1;
+    answer = "\nAlphabetical order: " + w2 + " " + w1;
   cout << answer << endl;
 }
 
@@ -98,9 +98,9 @@ void printResults(string &w, string title) {
 int main() {
   string word1, word2;
   getUserInput(word1, word2);
-  checkSame(word1, word2);
   printResults(word1, "1st word :");
   printResults(word2, "2nd word: ");
+  checkSame(word1, word2);
   alphabetical(word1, word2);
 
   return 0;
