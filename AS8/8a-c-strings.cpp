@@ -7,7 +7,8 @@
 ///***********************************************************************************
 #include <iostream>
 #include <vector>
-#include <strings>
+#include <string>
+#include <regex>
 using namespace std;
 
 void getUserInput(string &w1, string &w2) {
@@ -15,16 +16,16 @@ void getUserInput(string &w1, string &w2) {
 
   while(true) {
     cout << "\nEnter first word: ";
-    cin >> f;
+    cin >> w1;
 
     regex detectNums("[0-9]+");
-    if (regex_match(f, detectNums) || cin.bad() || cin.fail()) {
+    if (regex_match(w1, detectNums) || cin.bad() || cin.fail()) {
       cerr << error;
       cin.clear();
       cin.ignore();
     } else {
       cout << "\nEnter second word: ";
-      cin >> s;
+      cin >> w2;
 
       if (cin.bad() || cin.fail()) {
         cerr << error;
@@ -40,6 +41,9 @@ void getUserInput(string &w1, string &w2) {
 int main() {
   string word1, word2;
   getUserInput(word1, word2);
+
+  cout << word1 << endl << word2 << endl;
+
 
   return 0;
 }

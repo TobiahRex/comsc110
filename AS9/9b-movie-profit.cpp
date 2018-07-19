@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 struct movie_data {
@@ -15,6 +16,8 @@ struct movie_data {
   string director;
   string released;
   string run_time;
+  double prod_cost;
+  double revenue;
 } movies[2];
 
 void printResults(movie_data &movie) {
@@ -22,6 +25,10 @@ void printResults(movie_data &movie) {
     cout << "Director: " << movie.director << endl;
     cout << "Released: " << movie.released << endl;
     cout << "Running Time: " << movie.run_time << endl;
+    cout << setprecision(2) << fixed;
+    cout << "Production Cost: $" << movie.prod_cost << endl;
+    cout << "First Year Revenue: $" << movie.revenue << endl;
+    cout << "First Year Profit: $" << movie.prod_cost - movie.revenue << endl;
 };
 
 int main() {
@@ -29,11 +36,15 @@ int main() {
   movies[0].director = "Byron Haskin";
   movies[0].released = "1953";
   movies[0].run_time = "88 minutes";
+  movies[0].prod_cost = 1500000;
+  movies[0].revenue = 130000000;
 
   movies[1].title = "War of the Worlds";
   movies[1].director = "Steven Spielberg";
   movies[1].released = "2005";
   movies[1].run_time = "118 minutes";
+  movies[1].prod_cost = 22000000;
+  movies[1].revenue = 14000000;
 
   for (int i = 0; i < 2; i++) printResults(movies[i]);
 
