@@ -13,7 +13,8 @@
 #include <regex>
 using namespace std;
 
-void checkSame(string &w1, string &w2, string &answer) {
+void checkSame(string &w1, string &w2) {
+  string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
     answer = "The words are the same.";
@@ -75,30 +76,31 @@ void firstLastChar(string &w) {
 }
 
 void alphabetical(string &w1, string &w2) {
+  string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
     answer = "\nThe words are the same.";
-  else if (compare_result > 1)
+  else if (compare_result < 0)
     answer = "\nThe entered words in order: " + w1 + " " + w2;
   else
     answer = "\nThe entered words in order: " + w2 + " " + w1;
   cout << answer << endl;
 }
 
-void printResults(string &w string &same, string title) {
+void printResults(string &w, string title) {
   cout << title << endl;
-  capitalizeWord(w1);
-  lowercaseWord(w1);
-  wordLength(w1);
-  firstLastChar(w1);
+  capitalizeWord(w);
+  lowercaseWord(w);
+  wordLength(w);
+  firstLastChar(w);
 }
 
 int main() {
-  string word1, word2, sameCheck;
+  string word1, word2;
   getUserInput(word1, word2);
-  checkSame(w1, w2, same);
-  printResults(word1, sameCheck, "First Word: ");
-  printResults(word2, sameCheck, "Second Word: ");
+  checkSame(word1, word2);
+  printResults(word1, "First Word: ");
+  printResults(word2, "Second Word: ");
   alphabetical(word1, word2);
 
   return 0;
