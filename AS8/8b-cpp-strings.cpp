@@ -17,9 +17,9 @@ void checkSame(string &w1, string &w2) {
   string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
-    answer = "The words are the same.";
+  answer = w1 + " is the same as " + w2;
   else
-    answer = "The words are not the same.";
+    answer = w1 + " is NOT the same as " + w2;
   cout << answer << endl;
 }
 
@@ -55,7 +55,7 @@ void capitalizeWord(string &w) {
   for (auto s : w) {
     caps += toupper(s);
   }
-  cout << "\t" << caps << endl;
+  cout << "\tUppercase: " << caps << endl;
 }
 
 void lowercaseWord(string &w) {
@@ -63,23 +63,23 @@ void lowercaseWord(string &w) {
   for (auto s : w) {
     lower += tolower(s);
   }
-  cout << "\t" << lower << endl;
+  cout << "\tLowercase: " << lower << endl;
 }
 
 void wordLength(string &w) {
-  cout << "\t" << w.length() << endl;
+  cout << "\tTotal characters: " << w.length() << endl;
 }
 
 void firstLastChar(string &w) {
-  cout << "\t" << w[0] << endl;
-  cout << "\t" << w[w.length() - 1] << endl;
+  cout << "\tFirst character: " << w[0] << endl;
+  cout << "\tLast character: " << w[w.length() - 1] << endl;
 }
 
 void alphabetical(string &w1, string &w2) {
   string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
-    answer = "\nThe words are the same.";
+    answer = "\n" + w1 + " is NOT the same as " + w2;
   else if (compare_result < 0)
     answer = "\nThe entered words in order: " + w1 + " " + w2;
   else
@@ -88,10 +88,10 @@ void alphabetical(string &w1, string &w2) {
 }
 
 void printResults(string &w, string title) {
-  cout << title << endl;
+  cout << title << w << endl;
+  wordLength(w);
   capitalizeWord(w);
   lowercaseWord(w);
-  wordLength(w);
   firstLastChar(w);
 }
 
@@ -99,8 +99,8 @@ int main() {
   string word1, word2;
   getUserInput(word1, word2);
   checkSame(word1, word2);
-  printResults(word1, "First Word: ");
-  printResults(word2, "Second Word: ");
+  printResults(word1, "1st word :");
+  printResults(word2, "2nd word: ");
   alphabetical(word1, word2);
 
   return 0;
