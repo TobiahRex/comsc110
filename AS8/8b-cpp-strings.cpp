@@ -17,9 +17,9 @@ void checkSame(string &w1, string &w2) {
   string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
-  answer = w1 + " is the same as " + w2;
+  answer = "\n" + w1 + " is the same as " + w2;
   else
-    answer = w1 + " is NOT the same as " + w2;
+    answer = "\n" + w1 + " is NOT the same as " + w2;
   cout << answer << endl;
 }
 
@@ -38,6 +38,7 @@ void getUserInput(string &w1, string &w2) {
     } else {
       cout << "Enter second word: ";
       cin >> w2;
+      cout << endl;
 
       if (cin.bad() || cin.fail()) {
         cerr << error;
@@ -79,11 +80,11 @@ void alphabetical(string &w1, string &w2) {
   string answer;
   int compare_result = strcmp(w1.c_str(), w2.c_str());
   if (compare_result == 0)
-    answer = "\n" + w1 + " is NOT the same as " + w2;
+    answer = "" + w1 + " is NOT the same as " + w2;
   else if (compare_result < 0)
-    answer = "\nAlphabetical order: " + w1 + " " + w2;
+    answer = "Alphabetical order: " + w1 + " " + w2;
   else
-    answer = "\nAlphabetical order: " + w2 + " " + w1;
+    answer = "Alphabetical order: " + w2 + " " + w1;
   cout << answer << endl;
 }
 
