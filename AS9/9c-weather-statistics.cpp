@@ -54,19 +54,25 @@ void askForRain(float &total) {
     getline(cin, total);
 
     if (number == 0 || number < 0 || cin.bad() || cin.fail()) {
-      cout << error << endl;
+      cerr << error;
       cin.clear();
     } else {
-      if (number > lstLg) {
-        lrgM = month;
-        lstLg = number;
-      }
-      if (number < lstSm) {
-         smM = month;
-         lstSm = number;
-       }
+      break;
+    }
+  }
+}
 
-      n.push_back(number);
+void askForTemp(int &temp, string &temp_type) {
+  string error("\nThat is not a valid input.  \nPlease enter a valid floating point number & try again\n");
+
+  while(true) {
+    cout << temp_type;
+    getline(cin, total);
+
+    if (total == 0 || number < -100 || number > 140 || cin.bad() || cin.fail()) {
+      cerr << error;
+      cin.clear();
+    } else {
       break;
     }
   }
@@ -78,7 +84,8 @@ void beginProgram() {
     rainfall.push_back(rain());
     rain[i].month = [i + 1];
     askForRain(rain[i].total_rain);
-    askForTemp(rain[i].temp_high, rain[i].temp_lo);
+    askForTemp("High Temperature", rain[i].temp_high);
+    askForTemp("High Temperature", rain[i].temp_lo);
   }
 
   printResults(rainfall);
