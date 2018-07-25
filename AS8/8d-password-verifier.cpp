@@ -18,33 +18,42 @@ void getUserInput() {
   regex uppercase("[A-Z]+");
   regex lowercase("[a-z]+");
   regex numbers("[0-9]+");
-  regex length("{6, 0}");
 
   cout << prompt;
 
   while(true) {
-    cout << ": ";
+    cout << "\nEnter Password: ";
     getline(cin, password);
 
     if (cin.bad() || cin.fail()) {
       cerr << error;
       cin.clear();
-    } else if (!regex_search(password, uppercase)) {
-      cerr << "\nPassword must have at least 1 upper-case letter." << endl;
-      cin.clear();
-    } else if (!regex_search(password, lowercase)) {
-      cerr << "\nPassword must have at least 1 lower-case letter." << endl;
-      cin.clear();
-    } else if (!regex_search(password, numbers)) {
-      cerr << "\nPassword must have at least 1 number." << endl;
-      cin.clear();
-    } else if (!regex_search(password, length)) {
-      cerr << "\nPassword must have at least 6 total characters & letters combined." << endl;
-      cin.clear();
-    } else {
-      cout << "Your password is valid.";
+    } else if (
+      regex_search(password, uppercase) &&
+      regex_search(password, lowercase) &&
+      regex_search(password, numbers) &&
+      password.size() >= 6
+    ) {
+      cout << "\nYour password is valid." << endl;
       break;
     }
+
+    if (regex_search(password, uppercase) == false) {
+      cerr << "\nPassword must have at least 1 upper-case letter.";
+    }
+
+    if (regex_search(password, lowercase) == false) {
+      cerr << "\nPassword must have at least 1 lower-case letter.";
+    }
+
+    if (regex_search(password, numbers) == false) {
+      cerr << "\nPassword must have at least 1 number.";
+    }
+
+    if (password.size() < 6) {
+      cerr << "\nPassword must have at least 6 total characters & letters combined.";
+    }
+    cin.clear();
   }
 }
 
