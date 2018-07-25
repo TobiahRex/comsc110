@@ -97,6 +97,7 @@ void printResults(vector<rain> &rainfall) {
 
 void beginProgram() {
   vector<rain> rainfall;
+  enum months {JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER};
   for (int i{0}; i < 12; i++) {
     cout << "Month " << i + 1 << endl;
     rainfall.push_back(rain());
