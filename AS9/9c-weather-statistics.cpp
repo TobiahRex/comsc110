@@ -46,25 +46,16 @@ void getResults(vector<float> & r, float & sum, float & avg, float & lrg, float 
   sm = r[0];
 }
 
-void askForRain(
-  vector<float> & n,
-  int & month,
-  float & lrgM,
-  float & smM,
-  float & lstSm,
-  float & lstLg
-) {
+void askForRain(float &total) {
   string error("\nThat is not a valid input.  \nPlease enter a valid floating point number & try again\n");
 
   while(true) {
     cout << "Enter the rainfall (in inches) for month #" << month  << ": ";
-    float number{};
-    cin >> number;
+    getline(cin, total);
 
-    if (number == 0 || number < 0) {
+    if (number == 0 || number < 0 || cin.bad() || cin.fail()) {
       cout << error << endl;
       cin.clear();
-      cin.ignore();
     } else {
       if (number > lstLg) {
         lrgM = month;
@@ -83,9 +74,14 @@ void askForRain(
 
 void beginProgram() {
   vector<rain> rainfall;
+  for (int i{0}; i < 12; i++) {
+    rainfall.push_back(rain());
+    rain[i].month = [i + 1];
+    askForRain(rain[i].total_rain);
+    askForTemp(rain[i].temp_high, rain[i].temp_lo);
+  }
 
-  getResults(rainfall, sum, average, largest, smallest);
-  printResults(sum, average, largest, smallest, largestMonth, smallestMonth);
+  printResults(rainfall);
 }
 
 int main() {
