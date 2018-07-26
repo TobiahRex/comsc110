@@ -14,7 +14,7 @@
 using namespace std;
 
 struct rain {
-  int month;
+  string month;
   float total_rain;
   int temp_high;
   int temp_lo;
@@ -98,10 +98,12 @@ void printResults(vector<rain> &rainfall) {
 void beginProgram() {
   vector<rain> rainfall;
   enum months {JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER};
-  for (int i{0}; i < 12; i++) {
-    cout << "Month " << i + 1 << endl;
+  vector<string> month_names = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
+  for (int i{JANUARY}; i < DECEMBER; i++) {
+    cout << month_names[i] << endl;
     rainfall.push_back(rain());
-    rainfall[i].month = i + 1;
+    rainfall[i].month = month_names[i];
 
     askForRain(rainfall[i].total_rain);
     askForTemp("\tHigh Temperature: ", rainfall[i].temp_high);
