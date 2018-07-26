@@ -10,26 +10,31 @@
 #include <vector>
 using namespace std;
 
-int factorialIt(int &n) {
-  int solution{n};
-  while(--n) solution *= n;
+double factorialIt(double &n) {
+  double solution{n};
+  while(--n > 0) {
+    // cout << "\nn: " << n << endl;
+    solution *= n;
+  }
+
   return solution;
 }
 
-int factorialRe(int &solution, int n) {
+double factorialRe(double &solution, double n) {
   if (n == 1) return solution;
   solution *= --n;
   return factorialRe(solution, n);
 }
 
 int main() {
-  int n;
-  int saved;
+  double n{};
+  double saved{};
   while(true) {
-    string error("That is not a valid number. Try again.");
-    cout << "Enter a number to find its factorial: ";
+    string error("\tThat is not a valid number. Try again.");
+    cout << "Enter a number between 2 & 12 to calculate its factorial: ";
     cin >> n;
-    if (cin.bad() || cin.error()) {
+    if (cin.bad() || cin.fail() || 2 > n || n > 12) {
+      cout << error << endl;
       cin.clear();
     } else {
       break;
