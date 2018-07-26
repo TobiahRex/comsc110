@@ -7,30 +7,31 @@
 ///***********************************************************************************
 #include <iostream>
 #include <vector>
-#include <string>
-#include <algorithm>
-#include <iomanip>
-#include <limits>
 using namespace std;
 
 vector<int> getArr();
 void printArr(vector<int> &nums);
 void swap(int &a, int &b);
-void selectionSort(bool &right, vector<int> &nums);
+void selectionSort(bool right, vector<int> &nums);
 
 int main() {
   vector<int> nums;
   nums = getArr();
   cout << "The random array: ";
   printArr(nums);
+  cout << endl;
 
   nums = getArr();
-  selectSort(true, nums);
+  selectionSort(true, nums);
+  cout << "The Select Sorted (left): ";
   printArr(nums);
+  cout << endl;
 
   nums = getArr();
-  selectSort(false, nums);
+  selectionSort(false, nums);
+  cout << "The Select Sorted (right): ";
   printArr(nums);
+  cout << endl;
 
   return 0;
 }
@@ -50,18 +51,18 @@ void swap(int &a, int &b) {
   b = temp;
 }
 
-void selectionSort(bool &right, vector<int> &nums) {
-  int size = size(nums);
+void selectionSort(bool left, vector<int> &nums) {
+  int size = nums.size();
 
-  if (right) {
+  if (left) {
     for (int i{0}; i < size; i++) {
       for (int j = i + 1; j < size; j++) {
         if (nums[i] > nums[j]) swap(nums[i], nums[j]);
       }
     }
   } else {
-    for (int i{size}; i > 0; i++) {
-      for (int j = i - 1; j > 0; j++) {
+    for (int i{size - 1}; i > -1; i--) {
+      for (int j = i - 1; j > -1; j--) {
         if (nums[i] < nums[j]) swap(nums[i], nums[j]);
       }
     }
