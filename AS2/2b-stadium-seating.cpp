@@ -14,11 +14,11 @@ using namespace std;
 int main() {
   double class_a, class_b, class_c, total;
 
-  cout << "Enter the number of Class A tickets sold: " << endl;
+  cout << "Enter the number of Class A tickets ($15.00) sold: " << endl;
   cin >> class_a;
-  cout << "Enter the number of Class B tickets sold: " << endl;
+  cout << "Enter the number of Class B tickets ($12.00) sold: " << endl;
   cin >> class_b;
-  cout << "Enter the number of Class C tickets sold: " << endl;
+  cout << "Enter the number of Class C tickets ($9.00) sold: " << endl;
   cin >> class_c;
 
   total = (class_a * 15) + (class_b * 12) + (class_c * 9);

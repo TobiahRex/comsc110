@@ -11,6 +11,7 @@ using namespace std;
 
 int main() {
   int i = 1;
+  unsigned int i2 = 2;
   short s = 2;
   long l = 2;
   float f = 2.2;
@@ -18,6 +19,7 @@ int main() {
   double d = 12.68;
 
   cout << "int: " << sizeof(i) << endl;
+  cout << "unsigned int: " << sizeof(i2) << endl;
   cout << "short: " << sizeof(s) << endl;
   cout << "long: " << sizeof(l) << endl;
   cout << "float: " << sizeof(f) << endl;
